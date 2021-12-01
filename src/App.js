@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Countries from "./Countries";
+import CountryDetailFBC from "./CountryDetailFBC";
+import CountryDetailCBC from "./CountryDetailCBC";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+/**
+ * CountryDetailFBC - Function based component - http://localhost:3000/countries/FBC/india
+ * CountryDetailCBC - Class based component - http://localhost:3000/countries/CBC/india
+ */
+
+class App extends React.Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <Routes>
+          <Route path="/countries">
+            <Route index element={<Countries />} />
+            <Route path="FBC/:country" element={<CountryDetailFBC />} />
+            <Route path="CBC/:country" element={<CountryDetailCBC />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
+
+// /countries ----- list page
+// /countries/countryName ---detail page
