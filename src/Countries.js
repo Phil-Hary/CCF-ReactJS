@@ -72,7 +72,7 @@ class Countries extends React.Component {
               <br />
               <br />
               <br />
-              <a href={`/countries/${country.name.common}`}>View Details</a>
+              <a href={`/countries/FBC/${country.name.common}`}>View Details</a>
             </div>
           );
         })}
