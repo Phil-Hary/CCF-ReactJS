@@ -3,7 +3,9 @@ import "./App.css";
 import Countries from "./Countries";
 import CountryDetailFBC from "./CountryDetailFBC";
 import CountryDetailCBC from "./CountryDetailCBC";
+import Login from "./Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 /**
  * CountryDetailFBC - Function based component - http://localhost:3000/countries/FBC/india
@@ -15,6 +17,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Routes>
+          <Route path="/login" element={<Login />} />
           <Route path="/countries">
             <Route index element={<Countries />} />
             <Route path="FBC/:country" element={<CountryDetailFBC />} />
